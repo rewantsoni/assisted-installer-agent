@@ -182,7 +182,12 @@ func (d *disks) getDisks() []*models.Disk {
 
 	diskPath2diskWWN := d.getDisksWWNs()
 
+
+	fmt.Println("--------------------------------------------------------------")
+	fmt.Println("Disks are:")
 	for diskIndex, disk := range blockInfo.Disks {
+		fmt.Println("Disk Index ", diskIndex, " : ", disk)
+		fmt.Println("________________")
 		var eligibility models.DiskInstallationEligibility
 		var isInstallationMedia bool
 
@@ -229,6 +234,7 @@ func (d *disks) getDisks() []*models.Disk {
 
 		ret = append(ret, &rec)
 	}
+	fmt.Print("--------------------------------------------------------------")
 	return ret
 }
 
